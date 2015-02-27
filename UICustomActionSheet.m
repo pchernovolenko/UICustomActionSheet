@@ -41,7 +41,6 @@
         backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
         
         panel = [UIView new];
-        panel.backgroundColor = _backgroundColor;
         panel.translatesAutoresizingMaskIntoConstraints = NO;
         
         UITapGestureRecognizer *backgroungTap = [[UITapGestureRecognizer alloc]
@@ -83,6 +82,8 @@
 -(void)showInView:(UIView *)view{
     
     [view addSubview:self];
+    
+    panel.backgroundColor = _backgroundColor;
     
     NSDictionary *mainViews = @{@"bg":backgroundImage,@"panel":panel};
     
