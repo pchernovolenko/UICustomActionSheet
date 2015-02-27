@@ -3,6 +3,9 @@
 Fully customizable `UIActionSheet` replacement. Compatible with iOS 7 and 8.
 
 
+This сustom ActionSheet can also emphasize the element the menu is related to, by blurring the background of the presenting view. The element itself remains clear.
+
+
 ![Screen1](https://cloud.githubusercontent.com/assets/7644394/6421975/7da04fac-bedc-11e4-9d87-59b8696a664e.gif)
 ![Screen2](https://cloud.githubusercontent.com/assets/7644394/6421813/160a4e2a-bedb-11e4-803f-a474e64f6f6a.gif)
 
