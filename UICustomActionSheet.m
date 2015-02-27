@@ -3,7 +3,7 @@
 //  Hashtag
 //
 //  Created by Pavlo Chernovolenko on 2/27/15.
-//  Copyright (c) 2015 malkos. All rights reserved.
+//  Copyright (c) 2015 Pavlo Chernovolenko. All rights reserved.
 //
 
 #import "UICustomActionSheet.h"
