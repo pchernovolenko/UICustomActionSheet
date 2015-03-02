@@ -245,7 +245,7 @@
         if (_title) {
             
             UILabel *mainTitle = [[UILabel alloc] init];
-            mainTitle.numberOfLines = 2;
+            mainTitle.numberOfLines = 4;
             mainTitle.translatesAutoresizingMaskIntoConstraints = NO;
             mainTitle.textAlignment = NSTextAlignmentCenter;
             mainTitle.text = _title;
