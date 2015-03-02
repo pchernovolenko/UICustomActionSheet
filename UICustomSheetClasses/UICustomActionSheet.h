@@ -35,6 +35,7 @@
 @property (nonatomic, readwrite) float subtitleFontSize;
 @property (nonatomic, strong) UIColor* tintColor;
 @property (nonatomic, strong) UIColor* backgroundColor;
+@property (nonatomic, strong) UIColor* blurTintColor;
 @property (nonatomic, strong) UIColor* titleColor;
 @property (nonatomic, strong) UIColor* subtitleColor;
 @property (nonatomic, strong) UIColor* buttonsTextColor;
