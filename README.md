@@ -34,7 +34,7 @@ Feel free to set `nil` for `title` if you don't want it to be shown in your Acti
 `-(void)setButtonColors:(NSArray *)colors` - method to set an array of buttons colors. If `colors` array contains less elements than buttons number in UICustomActionSheet, only first `[colors count]` buttons will be colored with given in array colors, all next buttons will be colored with `tintColor` (default `grayColor`)
 
 
-`-(void)setTitle:(NSString *)caption andSubtitle:(NSString *)subtitle` - set title and subtitle to UICustomActionSheet. Both values is `nil` as default. 
+`-(void)setTitle:(NSString *)title andSubtitle:(NSString *)subtitle` - set title and subtitle to UICustomActionSheet. Both values is `nil` as default. 
 
 
 ##Customization using properties
