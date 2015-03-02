@@ -28,6 +28,7 @@
         _titleColor = [UIColor whiteColor];
         _subtitleColor = [UIColor lightGrayColor];
         _backgroundColor = [UIColor blackColor];
+        _blurTintColor = [UIColor colorWithWhite:0.1 alpha:0.4];;
         _titleFontSize = 22;
         _subtitleFontSize = 14;
         
@@ -117,9 +118,7 @@
         
         UIGraphicsEndImageContext();
         
-        
-        UIColor *tintColor = [UIColor colorWithWhite:0.1 alpha:0.4];
-        UIImage *outImage = [UIImageEffects imageByApplyingBlurToImage:inImage withRadius:5.0 tintColor:tintColor saturationDeltaFactor:1.2 maskImage:nil];
+        UIImage *outImage = [UIImageEffects imageByApplyingBlurToImage:inImage withRadius:5.0 tintColor:_blurTintColor saturationDeltaFactor:1.2 maskImage:nil];
         
         UIGraphicsBeginImageContext(outImage.size);
         
@@ -158,7 +157,7 @@
         
         [button setTitle:buttonTitle forState:UIControlStateNormal];
         [button setTitleColor:_buttonsTextColor forState:UIControlStateNormal];
-        [button setBackgroundColor:[buttonColors objectAtIndex:indexOfButton]?[buttonColors objectAtIndex:indexOfButton]:_tintColor];
+        [button setBackgroundColor:([buttonColors count] > indexOfButton)?[buttonColors objectAtIndex:indexOfButton]:_tintColor];
         [button addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button.layer setCornerRadius:3.0];
         

@@ -29,7 +29,7 @@
     
     UICustomActionSheet* actionSheet = [[UICustomActionSheet alloc] initWithTitle:@"Menu Title" delegate:nil buttonTitles:@[@"Cancel",@"Okay"]];
     
-    [actionSheet setButtonColors:@[[UIColor redColor],[UIColor grayColor]]];
+    [actionSheet setButtonColors:@[[UIColor redColor]]];
     [actionSheet setBackgroundColor:[UIColor clearColor]];
     
     [actionSheet setSubtitle:@"Cool subtitle message"];
