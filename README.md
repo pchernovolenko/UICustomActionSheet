@@ -46,7 +46,10 @@ Feel free to set `nil` for `title` if you don't want it to be shown in your Acti
 `tintColor` - standard color for UICustomActionSheet's buttons
 
 
-`backgroundColor` - color for panel background. Set it with `[UIColor clearColor]` value to make it transparent 
+`backgroundColor` - color for panel background. Set it with `[UIColor clearColor]` value to make it transparent
+
+
+`blurTintColor` - translucent color for tinting UICustomActionSheet's background in case `blurredBackground = YES`. The default value is `[UIColor colorWithWhite:0.1 alpha:0.4]`. 
 
 
 `titleColor` - title color for UICustomActionSheet. The default value is `whiteColor`
