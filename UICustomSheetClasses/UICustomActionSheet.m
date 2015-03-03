@@ -130,7 +130,7 @@
         CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, outImage.size.height);
         CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
         
-        CGRect circlePoint = (_claerArea);
+        CGRect circlePoint = (_clearArea);
         CGContextSetFillColorWithColor( UIGraphicsGetCurrentContext(), [UIColor clearColor].CGColor );
         CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear);
         CGContextFillRect(UIGraphicsGetCurrentContext(), circlePoint);

@@ -29,7 +29,7 @@
 
 @property (nonatomic, weak) id<UICustomActionSheetDelegate> delegate;
 
-@property (nonatomic, readwrite) CGRect claerArea;
+@property (nonatomic, readwrite) CGRect clearArea;
 @property (nonatomic, readwrite) BOOL blurredBackground;
 @property (nonatomic, readwrite) float titleFontSize;
 @property (nonatomic, readwrite) float subtitleFontSize;
