@@ -80,7 +80,7 @@ Feel free to set `nil` for `title` if you don't want it to be shown in your Acti
 `blurredBackground` - `bool` value. Set `NO` if you don't want to blur UICustomActionSheet presenter view. The default value is `YES`
 
 
-`claerArea` - `CGRect` value. Receives rect, which won't be blurred in case `blurredBackground = YES`
+`clearArea` - `CGRect` value. Receives rect, which won't be blurred in case `blurredBackground = YES`
 
 
 ## License
