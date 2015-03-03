@@ -1,5 +1,9 @@
 #UICustomActionSheet
 
+
+[![Gratipay](https://img.shields.io/gratipay/pchernovolenko.svg)](https://gratipay.com/pchernovolenko/)
+
+
 Fully customizable `UIActionSheet` replacement. Compatible with iOS 7 and 8.
 
 
@@ -17,7 +21,7 @@ Simply init UICustomActionSheet object in the same way you do with UIActionSheet
 
     UICustomActionSheet *actionSheet = [[UICustomActionSheet alloc] initWithTitle:@"Hello World" delegate:self buttonTitles:@[@"Bottom button",@"Top button"]];
 
-To present UICustomActionSheet in the view, you may use the same method as in UIActionSheet:
+Feel free to set `nil` for `title` if you don't want it to be shown in your ActionSheet. To present UICustomActionSheet in the view, you may use the same method as in UIActionSheet:
 
     [actionSheet showInView:self.view];
 
@@ -27,7 +31,7 @@ For handling UICustomActionSheet's events, presenting controller must implement 
         NSLog(@"%d",buttonIndex);
     }
 
-Feel free to set `nil` for `title` if you don't want it to be shown in your ActionSheet.  Do any customization stuff you need:
+Do any customization stuff you need:
 
 ##Customization using methods
 
