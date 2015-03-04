@@ -284,13 +284,13 @@
     
     panel.center = CGPointMake(panelCenter.x, panelCenter.y + panelHeight*2);
     
-    [UIView animateWithDuration:0.2 animations:^{
-        backgroundImage.alpha = 1;
-        panel.center = panelCenter;
-        
-    }];
-    
-    
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options:7<<16
+                     animations:^{
+                         backgroundImage.alpha = 1;
+                         panel.center = panelCenter;
+                     } completion:nil];
 }
 
 - (void)actionButtonPressed:(UIButton *)button {
@@ -302,14 +302,15 @@
 
 - (void) hideAlert
 {
-
-    [UIView animateWithDuration:0.2 animations:^{
-        backgroundImage.alpha = 0;
-        panel.frame = CGRectMake(0, panel.frame.origin.y + panel.frame.size.height, panel.frame.size.width, panel.frame.size.height);
-    } completion:^(BOOL finished) {
-        [self removeFromSuperview];
-    }];
-    
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options:7<<16
+                     animations:^{
+                         backgroundImage.alpha = 0;
+                         panel.frame = CGRectMake(0, panel.frame.origin.y + panel.frame.size.height, panel.frame.size.width, panel.frame.size.height);
+                     } completion:^(BOOL finished) {
+                         [self removeFromSuperview];
+                     }];
 }
 
 @end
