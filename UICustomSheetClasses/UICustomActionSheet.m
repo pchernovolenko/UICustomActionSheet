@@ -8,6 +8,7 @@
 
 #import "UICustomActionSheet.h"
 #import "UIImageEffects.h"
+#import "UIImage+ColorImage.h"
 
 @implementation UICustomActionSheet {
     
@@ -157,9 +158,11 @@
         
         [button setTitle:buttonTitle forState:UIControlStateNormal];
         [button setTitleColor:_buttonsTextColor forState:UIControlStateNormal];
-        [button setBackgroundColor:([buttonColors count] > indexOfButton)?[buttonColors objectAtIndex:indexOfButton]:_tintColor];
+        UIColor *backgroundColor = ([buttonColors count] > indexOfButton)?[buttonColors objectAtIndex:indexOfButton]:_tintColor;
+        [button setBackgroundImage:[UIImage imageWithColor:backgroundColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button.layer setCornerRadius:3.0];
+        button.clipsToBounds = YES;
         
         [panel addSubview:button];
         
