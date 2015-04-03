@@ -17,6 +17,7 @@
 		8DC39F571AA4679900410408 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DC39F561AA4679900410408 /* thumb.png */; };
 		8DC39F5C1AA4691700410408 /* UICustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F591AA4691700410408 /* UICustomActionSheet.m */; };
 		8DC39F5D1AA4691700410408 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F5B1AA4691700410408 /* UIImageEffects.m */; };
+		EEB4A16E1ACEF9DF00D1E962 /* UIImage+ColorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB4A16D1ACEF9DF00D1E962 /* UIImage+ColorImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 		8DC39F341AA4660F00410408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DC39F361AA4660F00410408 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8DC39F391AA4660F00410408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8DC39F3F1AA4660F00410408 /* UICustomSheetExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UICustomSheetExampleTests.xctest; path = "/Users/pavlochernovolenko/Documents/UICustomActionSheet/build/Debug-iphoneos/UICustomSheetExampleTests.xctest"; sourceTree = "<absolute>"; };
 		8DC39F441AA4660F00410408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC39F451AA4660F00410408 /* UICustomSheetExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICustomSheetExampleTests.m; sourceTree = "<group>"; };
 		8DC39F561AA4679900410408 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
@@ -48,6 +48,9 @@
 		8DC39F5A1AA4691700410408 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageEffects.h; path = UICustomSheetClasses/UIImageEffects.h; sourceTree = "<group>"; };
 		8DC39F5B1AA4691700410408 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageEffects.m; path = UICustomSheetClasses/UIImageEffects.m; sourceTree = "<group>"; };
 		8DC39F5E1AA46CB100410408 /* UICustomSheetExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICustomSheetExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEB4A1681ACEF99F00D1E962 /* UICustomSheetExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UICustomSheetExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEB4A16C1ACEF9DF00D1E962 /* UIImage+ColorImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ColorImage.h"; path = "UICustomSheetClasses/UIImage+ColorImage.h"; sourceTree = "<group>"; };
+		EEB4A16D1ACEF9DF00D1E962 /* UIImage+ColorImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ColorImage.m"; path = "UICustomSheetClasses/UIImage+ColorImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 				8DC39F281AA4660F00410408 /* UICustomSheetExample */,
 				8DC39F421AA4660F00410408 /* UICustomSheetExampleTests */,
 				8DC39F5E1AA46CB100410408 /* UICustomSheetExample.app */,
+				EEB4A1681ACEF99F00D1E962 /* UICustomSheetExampleTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +131,8 @@
 				8DC39F591AA4691700410408 /* UICustomActionSheet.m */,
 				8DC39F5A1AA4691700410408 /* UIImageEffects.h */,
 				8DC39F5B1AA4691700410408 /* UIImageEffects.m */,
+				EEB4A16C1ACEF9DF00D1E962 /* UIImage+ColorImage.h */,
+				EEB4A16D1ACEF9DF00D1E962 /* UIImage+ColorImage.m */,
 			);
 			name = UICustomActionSheetClasses;
 			sourceTree = "<group>";
@@ -166,7 +172,7 @@
 			);
 			name = UICustomSheetExampleTests;
 			productName = UICustomSheetExampleTests;
-			productReference = 8DC39F3F1AA4660F00410408 /* UICustomSheetExampleTests.xctest */;
+			productReference = EEB4A1681ACEF99F00D1E962 /* UICustomSheetExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -235,6 +241,7 @@
 				8DC39F5C1AA4691700410408 /* UICustomActionSheet.m in Sources */,
 				8DC39F321AA4660F00410408 /* ViewController.m in Sources */,
 				8DC39F2F1AA4660F00410408 /* AppDelegate.m in Sources */,
+				EEB4A16E1ACEF9DF00D1E962 /* UIImage+ColorImage.m in Sources */,
 				8DC39F5D1AA4691700410408 /* UIImageEffects.m in Sources */,
 				8DC39F2C1AA4660F00410408 /* main.m in Sources */,
 			);
