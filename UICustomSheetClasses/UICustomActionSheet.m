@@ -37,9 +37,6 @@
         
         self.frame = screenView.frame;
         
-        backgroundImage = [UIImageView new];
-        backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
-        
         panel = [UIView new];
         panel.translatesAutoresizingMaskIntoConstraints = NO;
         
@@ -51,7 +48,6 @@
         
         [self addGestureRecognizer:backgroungTap];
         
-        [self addSubview:backgroundImage];
         [self addSubview:panel];
         
     }
@@ -85,17 +81,7 @@
     
     panel.backgroundColor = _backgroundColor;
     
-    NSDictionary *mainViews = @{@"bg":backgroundImage,@"panel":panel};
-    
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[bg]-0-|"
-                                                                 options:0
-                                                                 metrics:nil
-                                                                   views:mainViews]];
-    
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[bg]-0-|"
-                                                                 options:0
-                                                                 metrics:nil
-                                                                   views:mainViews]];
+    NSDictionary *mainViews = @{@"panel":panel};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[panel]-0-|"
                                                                  options:0
@@ -107,50 +93,20 @@
                                                                  metrics:nil
                                                                    views:mainViews]];
     
-    //    if (_blurredBackground) {
-    //
-    //        UIGraphicsBeginImageContext([view.layer frame].size);
-    //
-    //        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    //
-    //        UIImage *inImage = UIGraphicsGetImageFromCurrentImageContext();
-    //
-    //        UIGraphicsEndImageContext();
-    //
-    //        UIImage *outImage = [UIImageEffects imageByApplyingBlurToImage:inImage withRadius:5.0 tintColor:_blurTintColor saturationDeltaFactor:1.2 maskImage:nil];
-    //
-    //        UIGraphicsBeginImageContext(outImage.size);
-    //
-    //        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, outImage.size.height);
-    //        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
-    //
-    //        CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, outImage.size.width, outImage.size.height), outImage.CGImage);
-    //
-    //        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, outImage.size.height);
-    //        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
-    //
-    //        CGRect circlePoint = (_clearArea);
-    //        CGContextSetFillColorWithColor( UIGraphicsGetCurrentContext(), [UIColor clearColor].CGColor );
-    //        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear);
-    //        _clearRoundedArea?CGContextFillEllipseInRect(UIGraphicsGetCurrentContext(), circlePoint):CGContextFillRect(UIGraphicsGetCurrentContext(), circlePoint);
-    //
-    //        UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
-    //
-    //        UIGraphicsEndImageContext();
-    //
-    //        backgroundImage.image = finalImage;
-    //
-    //    }
     
-    ILTranslucentView *translucentView = [[ILTranslucentView alloc] initWithFrame:self.frame];
-    [self insertSubview:translucentView atIndex:0]; //that's it :)
+    if (_blurredBackground) {
     
-    backgroundImage = translucentView;
-    //optional:
-    translucentView.translucentAlpha = 0.9;
-    translucentView.translucentStyle = UIBarStyleBlack;
-    translucentView.translucentTintColor = [UIColor clearColor];
-    translucentView.backgroundColor = [UIColor clearColor];
+        ILTranslucentView *translucentView = [[ILTranslucentView alloc] initWithFrame:self.frame];
+        [self insertSubview:translucentView atIndex:0]; //that's it :)
+        
+        backgroundImage = translucentView;
+        //optional:
+        translucentView.translucentAlpha = 0.9;
+        translucentView.translucentStyle = UIBarStyleBlack;
+        translucentView.translucentTintColor = [UIColor clearColor];
+        translucentView.backgroundColor = [UIColor clearColor];
+        
+    }
     
     
     NSMutableDictionary *views = [NSMutableDictionary new];

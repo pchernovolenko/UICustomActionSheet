@@ -23,7 +23,7 @@
     NSArray *buttonTitles;
     NSArray *buttonColors;
     
-    ILTranslucentView *backgroundImage;
+    UIView *backgroundImage;
     UIView *panel;
     
 }
