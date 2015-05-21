@@ -7,7 +7,7 @@
 //
 
 #import "UICustomActionSheet.h"
-#import "UIImageEffects.h"
+#import "ILTranslucentView.h"
 
 @implementation UICustomActionSheet {
     
@@ -27,7 +27,7 @@
         _blurredBackground = YES;
         _titleColor = [UIColor whiteColor];
         _subtitleColor = [UIColor lightGrayColor];
-        _backgroundColor = [UIColor blackColor];
+        _backgroundColor = [UIColor clearColor];
         _blurTintColor = [UIColor colorWithWhite:0.1 alpha:0.4];;
         _titleFontSize = 22;
         _subtitleFontSize = 14;
@@ -45,8 +45,8 @@
         panel.translatesAutoresizingMaskIntoConstraints = NO;
         
         UITapGestureRecognizer *backgroungTap = [[UITapGestureRecognizer alloc]
-                         initWithTarget:self
-                         action:@selector(hideAlert)];
+                                                 initWithTarget:self
+                                                 action:@selector(hideAlert)];
         
         backgroungTap.cancelsTouchesInView = YES;
         
@@ -89,59 +89,69 @@
     NSDictionary *mainViews = @{@"bg":backgroundImage,@"panel":panel};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[bg]-0-|"
-                                                                  options:0
-                                                                  metrics:nil
-                                                                    views:mainViews]];
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:mainViews]];
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[bg]-0-|"
-                                                                             options:0
-                                                                             metrics:nil
-                                                                               views:mainViews]];
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:mainViews]];
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[panel]-0-|"
-                                                                             options:0
-                                                                             metrics:nil
-                                                                               views:mainViews]];
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:mainViews]];
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[panel]-0-|"
-                                                                             options:0
-                                                                             metrics:nil
-                                                                               views:mainViews]];
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:mainViews]];
     
-    if (_blurredBackground) {
-        
-        UIGraphicsBeginImageContext([view.layer frame].size);
-        
-        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-        
-        UIImage *inImage = UIGraphicsGetImageFromCurrentImageContext();
-        
-        UIGraphicsEndImageContext();
-        
-        UIImage *outImage = [UIImageEffects imageByApplyingBlurToImage:inImage withRadius:5.0 tintColor:_blurTintColor saturationDeltaFactor:1.2 maskImage:nil];
-        
-        UIGraphicsBeginImageContext(outImage.size);
-        
-        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, outImage.size.height);
-        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
-        
-        CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, outImage.size.width, outImage.size.height), outImage.CGImage);
-        
-        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, outImage.size.height);
-        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
-        
-        CGRect circlePoint = (_clearArea);
-        CGContextSetFillColorWithColor( UIGraphicsGetCurrentContext(), [UIColor clearColor].CGColor );
-        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear);
-        CGContextFillRect(UIGraphicsGetCurrentContext(), circlePoint);
-        
-        UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
-        
-        UIGraphicsEndImageContext();
-        
-        backgroundImage.image = finalImage;
-        
-    }
+    //    if (_blurredBackground) {
+    //
+    //        UIGraphicsBeginImageContext([view.layer frame].size);
+    //
+    //        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    //
+    //        UIImage *inImage = UIGraphicsGetImageFromCurrentImageContext();
+    //
+    //        UIGraphicsEndImageContext();
+    //
+    //        UIImage *outImage = [UIImageEffects imageByApplyingBlurToImage:inImage withRadius:5.0 tintColor:_blurTintColor saturationDeltaFactor:1.2 maskImage:nil];
+    //
+    //        UIGraphicsBeginImageContext(outImage.size);
+    //
+    //        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, outImage.size.height);
+    //        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
+    //
+    //        CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, outImage.size.width, outImage.size.height), outImage.CGImage);
+    //
+    //        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, outImage.size.height);
+    //        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
+    //
+    //        CGRect circlePoint = (_clearArea);
+    //        CGContextSetFillColorWithColor( UIGraphicsGetCurrentContext(), [UIColor clearColor].CGColor );
+    //        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear);
+    //        _clearRoundedArea?CGContextFillEllipseInRect(UIGraphicsGetCurrentContext(), circlePoint):CGContextFillRect(UIGraphicsGetCurrentContext(), circlePoint);
+    //
+    //        UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+    //
+    //        UIGraphicsEndImageContext();
+    //
+    //        backgroundImage.image = finalImage;
+    //
+    //    }
+    
+    ILTranslucentView *translucentView = [[ILTranslucentView alloc] initWithFrame:self.frame];
+    [self insertSubview:translucentView atIndex:0]; //that's it :)
+    
+    backgroundImage = translucentView;
+    //optional:
+    translucentView.translucentAlpha = 0.9;
+    translucentView.translucentStyle = UIBarStyleBlack;
+    translucentView.translucentTintColor = [UIColor clearColor];
+    translucentView.backgroundColor = [UIColor clearColor];
     
     
     NSMutableDictionary *views = [NSMutableDictionary new];
@@ -170,9 +180,9 @@
         if ([buttonTitles indexOfObject:buttonTitle] == 0) {
             
             [panel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[%@(45)]-10-|",buttonHash]
-                                                                           options:0
-                                                                           metrics:nil
-                                                                             views:views]];
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:views]];
         } else {
             
             NSString *nextButtonHash = [NSString stringWithFormat:@"_%lu",(unsigned long)[[buttonTitles objectAtIndex:[buttonTitles indexOfObject:buttonTitle]-1] hash]];
@@ -181,18 +191,18 @@
                 
                 
                 [panel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[%@(45)]-8-[%@]",buttonHash,nextButtonHash]
-                                                                               options:0
-                                                                               metrics:nil
-                                                                                 views:views]];
+                                                                              options:0
+                                                                              metrics:nil
+                                                                                views:views]];
                 
             } else {
                 
                 NSString *mask = (!_title && !_subtitle)?@"V:|-10-[%@(45)]-8-[%@]":@"V:[%@(45)]-8-[%@]";
                 
                 [panel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:mask,buttonHash,nextButtonHash]
-                                                                               options:0
-                                                                               metrics:nil
-                                                                                 views:views]];
+                                                                              options:0
+                                                                              metrics:nil
+                                                                                views:views]];
                 
             }
             
@@ -200,9 +210,9 @@
         }
         
         [panel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"|-10-[%@]-10-|",buttonHash]
-                                                                       options:0
-                                                                       metrics:nil
-                                                                         views:views]];
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:views]];
         
     }
     
@@ -231,14 +241,14 @@
             NSString *lastButtonHash = [NSString stringWithFormat:@"_%lu",(unsigned long)[[buttonTitles objectAtIndex:[buttonTitles count]-1] hash]];
             
             [panel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"|-10-[%@]-10-|",subtitleHash]
-                                                                           options:0
-                                                                           metrics:nil
-                                                                             views:views]];
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:views]];
             
             [panel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:mask,subtitleHash,lastButtonHash]
-                                                                           options:0
-                                                                           metrics:nil
-                                                                             views:views]];
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:views]];
             
         }
         
@@ -263,14 +273,14 @@
             NSString *mask = (!_subtitle)?@"V:|-12-[%@]-12-[%@]":@"V:|-12-[%@]-0-[%@]";
             
             [panel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"|-10-[%@]-10-|",mainTitleHash]
-                                                                           options:0
-                                                                           metrics:nil
-                                                                             views:views]];
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:views]];
             
             [panel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:mask,mainTitleHash,lastElementHash]
-                                                                           options:0
-                                                                           metrics:nil
-                                                                             views:views]];
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:views]];
             
         }
         

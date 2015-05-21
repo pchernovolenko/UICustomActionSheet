@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D24A35B1B0E1EE70003CEFC /* ILTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D24A35A1B0E1EE70003CEFC /* ILTranslucentView.m */; };
 		8DC39F2C1AA4660F00410408 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F2B1AA4660F00410408 /* main.m */; };
 		8DC39F2F1AA4660F00410408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F2E1AA4660F00410408 /* AppDelegate.m */; };
 		8DC39F321AA4660F00410408 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F311AA4660F00410408 /* ViewController.m */; };
@@ -16,7 +17,6 @@
 		8DC39F461AA4660F00410408 /* UICustomSheetExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F451AA4660F00410408 /* UICustomSheetExampleTests.m */; };
 		8DC39F571AA4679900410408 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DC39F561AA4679900410408 /* thumb.png */; };
 		8DC39F5C1AA4691700410408 /* UICustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F591AA4691700410408 /* UICustomActionSheet.m */; };
-		8DC39F5D1AA4691700410408 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F5B1AA4691700410408 /* UIImageEffects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D24A3581B0E1E3E0003CEFC /* UICustomSheetExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UICustomSheetExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D24A3591B0E1EE70003CEFC /* ILTranslucentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILTranslucentView.h; sourceTree = "<group>"; };
+		8D24A35A1B0E1EE70003CEFC /* ILTranslucentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILTranslucentView.m; sourceTree = "<group>"; };
 		8DC39F2A1AA4660F00410408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC39F2B1AA4660F00410408 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8DC39F2D1AA4660F00410408 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,14 +42,11 @@
 		8DC39F341AA4660F00410408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DC39F361AA4660F00410408 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8DC39F391AA4660F00410408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8DC39F3F1AA4660F00410408 /* UICustomSheetExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UICustomSheetExampleTests.xctest; path = "/Users/pavlochernovolenko/Documents/UICustomActionSheet/build/Debug-iphoneos/UICustomSheetExampleTests.xctest"; sourceTree = "<absolute>"; };
 		8DC39F441AA4660F00410408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC39F451AA4660F00410408 /* UICustomSheetExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICustomSheetExampleTests.m; sourceTree = "<group>"; };
 		8DC39F561AA4679900410408 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
 		8DC39F581AA4691700410408 /* UICustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICustomActionSheet.h; path = UICustomSheetClasses/UICustomActionSheet.h; sourceTree = "<group>"; };
 		8DC39F591AA4691700410408 /* UICustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICustomActionSheet.m; path = UICustomSheetClasses/UICustomActionSheet.m; sourceTree = "<group>"; };
-		8DC39F5A1AA4691700410408 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageEffects.h; path = UICustomSheetClasses/UIImageEffects.h; sourceTree = "<group>"; };
-		8DC39F5B1AA4691700410408 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageEffects.m; path = UICustomSheetClasses/UIImageEffects.m; sourceTree = "<group>"; };
 		8DC39F5E1AA46CB100410408 /* UICustomSheetExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICustomSheetExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +75,7 @@
 				8DC39F281AA4660F00410408 /* UICustomSheetExample */,
 				8DC39F421AA4660F00410408 /* UICustomSheetExampleTests */,
 				8DC39F5E1AA46CB100410408 /* UICustomSheetExample.app */,
+				8D24A3581B0E1E3E0003CEFC /* UICustomSheetExampleTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,10 +124,10 @@
 		8DC39F4F1AA466B700410408 /* UICustomActionSheetClasses */ = {
 			isa = PBXGroup;
 			children = (
+				8D24A3591B0E1EE70003CEFC /* ILTranslucentView.h */,
+				8D24A35A1B0E1EE70003CEFC /* ILTranslucentView.m */,
 				8DC39F581AA4691700410408 /* UICustomActionSheet.h */,
 				8DC39F591AA4691700410408 /* UICustomActionSheet.m */,
-				8DC39F5A1AA4691700410408 /* UIImageEffects.h */,
-				8DC39F5B1AA4691700410408 /* UIImageEffects.m */,
 			);
 			name = UICustomActionSheetClasses;
 			sourceTree = "<group>";
@@ -166,7 +167,7 @@
 			);
 			name = UICustomSheetExampleTests;
 			productName = UICustomSheetExampleTests;
-			productReference = 8DC39F3F1AA4660F00410408 /* UICustomSheetExampleTests.xctest */;
+			productReference = 8D24A3581B0E1E3E0003CEFC /* UICustomSheetExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -235,8 +236,8 @@
 				8DC39F5C1AA4691700410408 /* UICustomActionSheet.m in Sources */,
 				8DC39F321AA4660F00410408 /* ViewController.m in Sources */,
 				8DC39F2F1AA4660F00410408 /* AppDelegate.m in Sources */,
-				8DC39F5D1AA4691700410408 /* UIImageEffects.m in Sources */,
 				8DC39F2C1AA4660F00410408 /* main.m in Sources */,
+				8D24A35B1B0E1EE70003CEFC /* ILTranslucentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
