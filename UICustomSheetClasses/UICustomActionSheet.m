@@ -7,6 +7,7 @@
 //
 
 #import "UICustomActionSheet.h"
+#import "UIView+Blur.h"
 
 @implementation UICustomActionSheet {
     
@@ -95,16 +96,16 @@
     
     
     if (_blurredBackground) {
-    
-        ILTranslucentView *translucentView = [[ILTranslucentView alloc] initWithFrame:self.frame];
-        [self insertSubview:translucentView atIndex:0]; //that's it :)
+        
+        UIView *translucentView = [[UIView alloc] initWithFrame:self.frame];
+        
+        [translucentView enableBlur:YES];
+        [translucentView setBlurTintColor:_blurTintColor];
+        [translucentView setBlurStyle:UIViewBlurDarkStyle];
+        
+        [self insertSubview:translucentView atIndex:0];
         
         backgroundImage = translucentView;
-        //optional:
-        translucentView.translucentAlpha = 0.9;
-        translucentView.translucentStyle = UIBarStyleBlack;
-        translucentView.translucentTintColor = [UIColor clearColor];
-        translucentView.backgroundColor = [UIColor clearColor];
         
     }
     

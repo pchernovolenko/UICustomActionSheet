@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ILTranslucentView.h"
 #import <UIKit/UIKit.h>
 
 @class UICustomActionSheet;
