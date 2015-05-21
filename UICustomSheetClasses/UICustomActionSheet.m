@@ -7,7 +7,6 @@
 //
 
 #import "UICustomActionSheet.h"
-#import "ILTranslucentView.h"
 
 @implementation UICustomActionSheet {
     

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ILTranslucentView.h"
 #import <UIKit/UIKit.h>
 
 @class UICustomActionSheet;
@@ -22,7 +23,7 @@
     NSArray *buttonTitles;
     NSArray *buttonColors;
     
-    UIImageView *backgroundImage;
+    ILTranslucentView *backgroundImage;
     UIView *panel;
     
 }
