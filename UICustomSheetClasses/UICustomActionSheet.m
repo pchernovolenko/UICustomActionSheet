@@ -7,6 +7,7 @@
 //
 
 #import "UICustomActionSheet.h"
+#import "UIImageEffects.h"
 
 @implementation UICustomActionSheet {
     
@@ -26,7 +27,7 @@
         _blurredBackground = YES;
         _titleColor = [UIColor whiteColor];
         _subtitleColor = [UIColor lightGrayColor];
-        _backgroundColor = [UIColor clearColor];
+        _backgroundColor = [UIColor blackColor];
         _blurTintColor = [UIColor colorWithWhite:0.1 alpha:0.4];;
         _titleFontSize = 22;
         _subtitleFontSize = 14;
@@ -36,6 +37,12 @@
         _delegate = delegate;
         
         self.frame = screenView.frame;
+        
+        backgroundImage = [UIImageView new];
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        highlitedElement = [UIImageView new];
+        highlitedElement.translatesAutoresizingMaskIntoConstraints = NO;
         
         panel = [UIView new];
         panel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -48,6 +55,8 @@
         
         [self addGestureRecognizer:backgroungTap];
         
+        [self addSubview:backgroundImage];
+        [self addSubview:highlitedElement];
         [self addSubview:panel];
         
     }
@@ -81,7 +90,20 @@
     
     panel.backgroundColor = _backgroundColor;
     
-    NSDictionary *mainViews = @{@"panel":panel};
+    highlitedElement.image = [self imageFromLayer:_clearLayer];
+    highlitedElement.alpha = 0.0f;
+    
+    NSDictionary *mainViews = @{@"bg":backgroundImage,@"panel":panel, @"clearLayer":highlitedElement};
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[bg]-0-|"
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:mainViews]];
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[bg]-0-|"
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:mainViews]];
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[panel]-0-|"
                                                                  options:0
@@ -93,20 +115,41 @@
                                                                  metrics:nil
                                                                    views:mainViews]];
     
-    
     if (_blurredBackground) {
-    
-        ILTranslucentView *translucentView = [[ILTranslucentView alloc] initWithFrame:self.frame];
-        [self insertSubview:translucentView atIndex:0]; //that's it :)
         
-        backgroundImage = translucentView;
-        //optional:
-        translucentView.translucentAlpha = 0.9;
-        translucentView.translucentStyle = UIBarStyleBlack;
-        translucentView.translucentTintColor = [UIColor clearColor];
-        translucentView.backgroundColor = [UIColor clearColor];
+        UIGraphicsBeginImageContext([view.layer frame].size);
+        
+        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        
+        UIImage *inImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        
+        UIImage *outImage = [UIImageEffects imageByApplyingBlurToImage:inImage withRadius:5.0 tintColor:_blurTintColor saturationDeltaFactor:1.2 maskImage:nil];
+        
+        UIGraphicsBeginImageContext(outImage.size);
+        
+        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, outImage.size.height);
+        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
+        
+        CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, outImage.size.width, outImage.size.height), outImage.CGImage);
+        
+        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, outImage.size.height);
+        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
+        
+        CGRect circlePoint = (_clearArea);
+        CGContextSetFillColorWithColor( UIGraphicsGetCurrentContext(), [UIColor clearColor].CGColor );
+        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear);
+        CGContextFillRect(UIGraphicsGetCurrentContext(), circlePoint);
+        
+        UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        
+        backgroundImage.image = finalImage;
         
     }
+    
     
     
     NSMutableDictionary *views = [NSMutableDictionary new];
@@ -248,6 +291,7 @@
     panelHeight = panel.frame.size.height / 2;
     
     panel.center = CGPointMake(panelCenter.x, panelCenter.y + panelHeight*2);
+    highlitedElement.center = _clearLayer.position;
     
     [UIView animateWithDuration:0.2
                           delay:0
@@ -256,6 +300,15 @@
                          backgroundImage.alpha = 1;
                          panel.center = panelCenter;
                      } completion:nil];
+    
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options:7<<16
+                     animations:^{
+                         highlitedElement.center = CGPointMake(self.center.x, self.center.y - panel.frame.size.height / 2);
+                         highlitedElement.alpha = 100.0f;
+                     } completion:nil];
+    
 }
 
 - (void)actionButtonPressed:(UIButton *)button {
@@ -273,9 +326,23 @@
                      animations:^{
                          backgroundImage.alpha = 0;
                          panel.frame = CGRectMake(0, panel.frame.origin.y + panel.frame.size.height, panel.frame.size.width, panel.frame.size.height);
+                         highlitedElement.alpha = 0.0f;
+                         highlitedElement.center = _clearLayer.position;
                      } completion:^(BOOL finished) {
                          [self removeFromSuperview];
                      }];
+}
+
+- (UIImage *)imageFromLayer:(CALayer *)layer
+{
+    UIGraphicsBeginImageContextWithOptions([layer frame].size, NO, 0);
+    
+    [layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return outputImage;
 }
 
 @end

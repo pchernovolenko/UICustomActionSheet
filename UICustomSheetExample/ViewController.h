@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController
 
 - (IBAction)presentUICustomActionSheet:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 
 @end
 

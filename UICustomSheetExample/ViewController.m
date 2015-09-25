@@ -31,7 +31,7 @@
     
     [actionSheet setButtonColors:@[[UIColor redColor]]];
     [actionSheet setBackgroundColor:[UIColor clearColor]];
-    
+    [actionSheet setClearLayer:_image.layer];
     [actionSheet setSubtitle:@"Cool subtitle message"];
     [actionSheet setSubtitleColor:[UIColor whiteColor]];
     

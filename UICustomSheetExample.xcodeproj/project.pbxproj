@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D24A35B1B0E1EE70003CEFC /* ILTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D24A35A1B0E1EE70003CEFC /* ILTranslucentView.m */; };
+		8D81AF011BB54C5300BE8E74 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D81AF001BB54C5300BE8E74 /* UIImageEffects.m */; settings = {ASSET_TAGS = (); }; };
 		8DC39F2C1AA4660F00410408 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F2B1AA4660F00410408 /* main.m */; };
 		8DC39F2F1AA4660F00410408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F2E1AA4660F00410408 /* AppDelegate.m */; };
 		8DC39F321AA4660F00410408 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC39F311AA4660F00410408 /* ViewController.m */; };
@@ -31,8 +31,8 @@
 
 /* Begin PBXFileReference section */
 		8D24A3581B0E1E3E0003CEFC /* UICustomSheetExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UICustomSheetExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D24A3591B0E1EE70003CEFC /* ILTranslucentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILTranslucentView.h; path = UICustomSheetClasses/ILTranslucentView.h; sourceTree = "<group>"; };
-		8D24A35A1B0E1EE70003CEFC /* ILTranslucentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILTranslucentView.m; path = UICustomSheetClasses/ILTranslucentView.m; sourceTree = "<group>"; };
+		8D81AEFF1BB54C5300BE8E74 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
+		8D81AF001BB54C5300BE8E74 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
 		8DC39F2A1AA4660F00410408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC39F2B1AA4660F00410408 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8DC39F2D1AA4660F00410408 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,8 +124,8 @@
 		8DC39F4F1AA466B700410408 /* UICustomActionSheetClasses */ = {
 			isa = PBXGroup;
 			children = (
-				8D24A3591B0E1EE70003CEFC /* ILTranslucentView.h */,
-				8D24A35A1B0E1EE70003CEFC /* ILTranslucentView.m */,
+				8D81AEFF1BB54C5300BE8E74 /* UIImageEffects.h */,
+				8D81AF001BB54C5300BE8E74 /* UIImageEffects.m */,
 				8DC39F581AA4691700410408 /* UICustomActionSheet.h */,
 				8DC39F591AA4691700410408 /* UICustomActionSheet.m */,
 			);
@@ -236,8 +236,8 @@
 				8DC39F5C1AA4691700410408 /* UICustomActionSheet.m in Sources */,
 				8DC39F321AA4660F00410408 /* ViewController.m in Sources */,
 				8DC39F2F1AA4660F00410408 /* AppDelegate.m in Sources */,
+				8D81AF011BB54C5300BE8E74 /* UIImageEffects.m in Sources */,
 				8DC39F2C1AA4660F00410408 /* main.m in Sources */,
-				8D24A35B1B0E1EE70003CEFC /* ILTranslucentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -30,21 +31,30 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="gIb-7Z-BKy">
-                                <rect key="frame" x="220" y="117" width="160" height="160"/>
+                                <rect key="frame" x="220" y="28" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="Bvq-fj-zoL"/>
                                     <constraint firstAttribute="height" constant="160" id="eCJ-g5-nwy"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="80"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="gIb-7Z-BKy" secondAttribute="centerX" id="6Su-Iq-9zK"/>
+                            <constraint firstItem="gIb-7Z-BKy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="R60-xI-ffx"/>
                             <constraint firstAttribute="centerX" secondItem="97o-tP-qwc" secondAttribute="centerX" id="YVk-eU-Q9w"/>
-                            <constraint firstItem="97o-tP-qwc" firstAttribute="top" secondItem="gIb-7Z-BKy" secondAttribute="bottom" constant="8" id="t3E-jL-uLT"/>
                             <constraint firstAttribute="centerY" secondItem="97o-tP-qwc" secondAttribute="centerY" id="zIY-n0-5h2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="image" destination="gIb-7Z-BKy" id="VNn-gh-9db"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

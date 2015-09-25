@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ILTranslucentView.h"
 #import <UIKit/UIKit.h>
 
 @class UICustomActionSheet;
@@ -23,7 +22,8 @@
     NSArray *buttonTitles;
     NSArray *buttonColors;
     
-    UIView *backgroundImage;
+    UIImageView *backgroundImage;
+    UIImageView *highlitedElement;
     UIView *panel;
     
 }
@@ -31,6 +31,7 @@
 @property (nonatomic, weak) id<UICustomActionSheetDelegate> delegate;
 
 @property (nonatomic, readwrite) CGRect clearArea;
+@property (nonatomic, readwrite) CALayer *clearLayer;
 @property (nonatomic, readwrite) BOOL blurredBackground;
 @property (nonatomic, readwrite) float titleFontSize;
 @property (nonatomic, readwrite) float subtitleFontSize;
