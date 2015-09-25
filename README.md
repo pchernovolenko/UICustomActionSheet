@@ -4,7 +4,10 @@
 [![Gratipay](https://img.shields.io/gratipay/pchernovolenko.svg)](https://gratipay.com/pchernovolenko/)
 
 
-Fully customizable `UIActionSheet` replacement. Compatible with iOS 7 and 8.
+Fully customizable `UIActionSheet` replacement. Compatible with iOS 7, 8 and 9.
+
+
+![Screen0](https://cloud.githubusercontent.com/assets/7644394/10099348/702f0b2e-6391-11e5-9c82-dc30d84489e6.gif)
 
 
 This сustom ActionSheet can also emphasize the element the menu is related to, by blurring the background of the presenting view. The element itself remains clear.
