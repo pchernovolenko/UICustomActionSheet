@@ -7,9 +7,6 @@
 Fully customizable `UIActionSheet` replacement. Compatible with iOS 7, 8 and 9.
 
 
-![Screen0](https://cloud.githubusercontent.com/assets/7644394/10099348/702f0b2e-6391-11e5-9c82-dc30d84489e6.gif)
-
-
 This сustom ActionSheet can also emphasize the element the menu is related to, by blurring the background of the presenting view. The element itself remains clear.
 
 
@@ -43,6 +40,8 @@ Do any customization stuff you need:
 
 `-(void)setTitle:(NSString *)title andSubtitle:(NSString *)subtitle` - set title and subtitle to UICustomActionSheet. Both values are `nil` as default. 
 
+
+`-(void)clearLayer:(CALayer *)layer withCenter:(CGPoint)point` - highlights `layer` using animation. (moves layer from `point` to screen center)
 
 ##Customization using properties
 
@@ -89,6 +88,10 @@ Do any customization stuff you need:
 
 `clearArea` - `CGRect` value. Receives rect, which won't be blurred in case `blurredBackground = YES`
 
+
+###Example of using `clearLayer:(CALayer *)layer withCenter:(CGPoint)point`
+
+![Screen0](https://cloud.githubusercontent.com/assets/7644394/10099348/702f0b2e-6391-11e5-9c82-dc30d84489e6.gif)
 
 ## License
 
