@@ -89,7 +89,7 @@ Do any customization stuff you need:
 `clearArea` - `CGRect` value. Receives rect, which won't be blurred in case `blurredBackground = YES`
 
 
-###Example of using `clearLayer:(CALayer *)layer withCenter:(CGPoint)point`
+###Example of using `clearLayer: withCenter:`
 
 ![Screen0](https://cloud.githubusercontent.com/assets/7644394/10099348/702f0b2e-6391-11e5-9c82-dc30d84489e6.gif)
 
