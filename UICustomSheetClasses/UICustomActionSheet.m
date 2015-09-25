@@ -64,6 +64,13 @@
     return self;
 }
 
+-(void)clearLayer:(CALayer *)layer withCenter:(CGPoint)point{
+    
+    _clearLayer = layer;
+    _clearLayerCenter = point;
+    
+}
+
 -(void)setButtonTitles:(NSArray *)titles withColors:(NSArray *)colors{
     
     buttonTitles = titles;
@@ -291,7 +298,7 @@
     panelHeight = panel.frame.size.height / 2;
     
     panel.center = CGPointMake(panelCenter.x, panelCenter.y + panelHeight*2);
-    highlitedElement.center = _clearLayer.position;
+    highlitedElement.center = !CGPointEqualToPoint(_clearLayerCenter, CGPointZero) ? _clearLayerCenter : _clearLayer.position;
     
     [UIView animateWithDuration:0.2
                           delay:0
@@ -327,7 +334,7 @@
                          backgroundImage.alpha = 0;
                          panel.frame = CGRectMake(0, panel.frame.origin.y + panel.frame.size.height, panel.frame.size.width, panel.frame.size.height);
                          highlitedElement.alpha = 0.0f;
-                         highlitedElement.center = _clearLayer.position;
+                         highlitedElement.center = !CGPointEqualToPoint(_clearLayerCenter, CGPointZero) ? _clearLayerCenter : _clearLayer.position;
                      } completion:^(BOOL finished) {
                          [self removeFromSuperview];
                      }];

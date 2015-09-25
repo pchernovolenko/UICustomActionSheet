@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomTableViewCell.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <CellProtocol>
 
 - (IBAction)presentUICustomActionSheet:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

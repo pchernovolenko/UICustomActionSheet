@@ -31,10 +31,11 @@
 @property (nonatomic, weak) id<UICustomActionSheetDelegate> delegate;
 
 @property (nonatomic, readwrite) CGRect clearArea;
-@property (nonatomic, readwrite) CALayer *clearLayer;
+@property (nonatomic, readwrite) CGPoint clearLayerCenter;
 @property (nonatomic, readwrite) BOOL blurredBackground;
 @property (nonatomic, readwrite) float titleFontSize;
 @property (nonatomic, readwrite) float subtitleFontSize;
+@property (nonatomic, strong) CALayer *clearLayer;
 @property (nonatomic, strong) UIColor* tintColor;
 @property (nonatomic, strong) UIColor* backgroundColor;
 @property (nonatomic, strong) UIColor* blurTintColor;
@@ -50,7 +51,7 @@
 
 -(void)setButtonColors:(NSArray *)colors;
 -(void)setTitle:(NSString *)caption andSubtitle:(NSString *)subtitle;
-
+-(void)clearLayer:(CALayer *)layer withCenter:(CGPoint)point;
 -(void)showInView:(UIView *)view;
 
 @end
