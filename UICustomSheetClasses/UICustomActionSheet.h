@@ -23,7 +23,7 @@
     NSArray *buttonColors;
     
     UIImageView *backgroundImage;
-    UIImageView *highlitedElement;
+    UIImageView *highlightedElement;
     UIView *panel;
     
 }

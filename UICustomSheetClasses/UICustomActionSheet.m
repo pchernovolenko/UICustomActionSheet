@@ -41,8 +41,8 @@
         backgroundImage = [UIImageView new];
         backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
         
-        highlitedElement = [UIImageView new];
-        highlitedElement.translatesAutoresizingMaskIntoConstraints = NO;
+        highlightedElement = [UIImageView new];
+        highlightedElement.translatesAutoresizingMaskIntoConstraints = NO;
         
         panel = [UIView new];
         panel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -56,7 +56,7 @@
         [self addGestureRecognizer:backgroungTap];
         
         [self addSubview:backgroundImage];
-        [self addSubview:highlitedElement];
+        [self addSubview:highlightedElement];
         [self addSubview:panel];
         
     }
@@ -97,10 +97,10 @@
     
     panel.backgroundColor = _backgroundColor;
     
-    highlitedElement.image = [self imageFromLayer:_clearLayer];
-    highlitedElement.alpha = 0.0f;
+    highlightedElement.image = [self imageFromLayer:_clearLayer];
+    highlightedElement.alpha = 0.0f;
     
-    NSDictionary *mainViews = @{@"bg":backgroundImage,@"panel":panel, @"clearLayer":highlitedElement};
+    NSDictionary *mainViews = @{@"bg":backgroundImage,@"panel":panel, @"clearLayer":highlightedElement};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[bg]-0-|"
                                                                  options:0
@@ -298,7 +298,7 @@
     panelHeight = panel.frame.size.height / 2;
     
     panel.center = CGPointMake(panelCenter.x, panelCenter.y + panelHeight*2);
-    highlitedElement.center = !CGPointEqualToPoint(_clearLayerCenter, CGPointZero) ? _clearLayerCenter : _clearLayer.position;
+    highlightedElement.center = !CGPointEqualToPoint(_clearLayerCenter, CGPointZero) ? _clearLayerCenter : _clearLayer.position;
     
     [UIView animateWithDuration:0.2
                           delay:0
@@ -312,8 +312,8 @@
                           delay:0
                         options:7<<16
                      animations:^{
-                         highlitedElement.center = CGPointMake(self.center.x, self.center.y - panel.frame.size.height / 2);
-                         highlitedElement.alpha = 100.0f;
+                         highlightedElement.center = CGPointMake(self.center.x, self.center.y - panel.frame.size.height / 2);
+                         highlightedElement.alpha = 100.0f;
                      } completion:nil];
     
 }
@@ -333,8 +333,8 @@
                      animations:^{
                          backgroundImage.alpha = 0;
                          panel.frame = CGRectMake(0, panel.frame.origin.y + panel.frame.size.height, panel.frame.size.width, panel.frame.size.height);
-                         highlitedElement.alpha = 0.0f;
-                         highlitedElement.center = !CGPointEqualToPoint(_clearLayerCenter, CGPointZero) ? _clearLayerCenter : _clearLayer.position;
+                         highlightedElement.alpha = 0.0f;
+                         highlightedElement.center = !CGPointEqualToPoint(_clearLayerCenter, CGPointZero) ? _clearLayerCenter : _clearLayer.position;
                      } completion:^(BOOL finished) {
                          [self removeFromSuperview];
                      }];
