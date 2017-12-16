@@ -1,4 +1,4 @@
-#UICustomActionSheet
+# UICustomActionSheet
 
 
 [![Gratipay](https://img.shields.io/gratipay/pchernovolenko.svg)](https://gratipay.com/pchernovolenko/)
@@ -14,7 +14,7 @@ This сustom ActionSheet can also emphasize the element the menu is related to, 
 ![Screen2](https://cloud.githubusercontent.com/assets/7644394/6421813/160a4e2a-bedb-11e4-803f-a474e64f6f6a.gif)
 
 
-##How to use
+## How to use
 
 
 Simply init UICustomActionSheet object in the same way you do with UIActionSheet:
@@ -33,7 +33,7 @@ For handling UICustomActionSheet's events, presenting controller must implement 
 
 Do any customization stuff you need:
 
-##Customization using methods
+## Customization using methods
 
 `-(void)setButtonColors:(NSArray *)colors` - method to set an array of buttons colors. If `colors` array contains less elements than buttons number in UICustomActionSheet, only first `[colors count]` buttons will be colored with given in array colors, all next buttons will be colored with `tintColor` (default `grayColor`)
 
@@ -43,10 +43,10 @@ Do any customization stuff you need:
 
 `-(void)clearLayer:(CALayer *)layer withCenter:(CGPoint)point` - highlights `layer` using animation. (moves layer from `point` to screen center)
 
-##Customization using properties
+## Customization using properties
 
 
-###Colors
+### Colors
 
 
 `tintColor` - standard color for UICustomActionSheet's buttons
@@ -67,7 +67,7 @@ Do any customization stuff you need:
 `buttonsTextColor` - button's text color for normal state . The default value is `whiteColor`
 
 
-###Title and subtitle font size 
+### Title and subtitle font size 
 
 
 `subtitle` - subtitle text. It doesn't effect if it's `nil`
@@ -81,7 +81,7 @@ Do any customization stuff you need:
 
 `titleFontSize` - `float` value for title text font size. The default value is `22.0`
 
-###Background customization
+### Background customization
 
 `blurredBackground` - `bool` value. Set `NO` if you don't want to blur UICustomActionSheet presenter view. The default value is `YES`
 
@@ -89,7 +89,7 @@ Do any customization stuff you need:
 `clearArea` - `CGRect` value. Receives rect, which won't be blurred in case `blurredBackground = YES`
 
 
-###Example of using `clearLayer: withCenter:`
+### Example of using `clearLayer: withCenter:`
 
 ![Screen0](https://cloud.githubusercontent.com/assets/7644394/10099348/702f0b2e-6391-11e5-9c82-dc30d84489e6.gif)
 
