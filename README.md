@@ -91,6 +91,31 @@ Do any customization stuff you need:
 
 ### Example of using `clearLayer: withCenter:`
 
+Use this method when you want to highlight some content while presenting UICustomActionSheet. Input parameters:
+- `clearLayer` - `CALayer` value. Receives a layer, that will be highlighted.
+- `withCenter` - `CGPoint` value. Center point for provided layer **in presenting view's coordinate system**. This value will be used as a start value for the layer moving animation.
+
+Example code:
+```
+- (void)showAlertForCell:(UITableViewCell *)cell {
+    
+    UICustomActionSheet* actionSheet = [[UICustomActionSheet alloc] initWithTitle:"Title" delegate:nil buttonTitles:@[@"Cancel", @"OK"]];
+    
+    [actionSheet setButtonColors:@[[UIColor redColor],[UIColor colorWithRed:0.0f green:153.0f/255.0f blue:0.0f alpha:1.0f]]];
+    [actionSheet setBackgroundColor:[UIColor clearColor]];
+    
+    CGRect rect = [self.view convertRect:cell.frame fromView:_tableView];
+    
+    [actionSheet clearLayer:cell.layer withCenter:CGPointMake(rect.origin.x + rect.size.width / 2.0f, rect.origin.y + rect.size.height / 2.0f)];
+    
+    [actionSheet setSubtitle:@"Subtitle"];
+    [actionSheet setSubtitleColor:[UIColor whiteColor]];
+    
+    [actionSheet showInView:self.view];
+    
+}
+```
+
 ![Screen0](https://cloud.githubusercontent.com/assets/7644394/10099348/702f0b2e-6391-11e5-9c82-dc30d84489e6.gif)
 
 ## License
